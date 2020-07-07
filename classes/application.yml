@@ -1,0 +1,48 @@
+server:
+   port: 8873
+   servlet:
+      contextPath: /myApp
+
+#server:
+#   servlet:
+#      session:
+#         timeout: 10
+spring:
+    profiles.active: prod
+    messages:
+      #basename: i18n/messages #default base name is messages
+      basename: i18n/languages
+    mvc:
+       #view.prefix: /WEB-INF/views/
+       #view.suffix: .jsp
+       static-path-pattern: /resources/**
+    datasource:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/dalims
+      username: root
+      password: 1234
+    jpa:
+      #properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      show-sql: true
+      properties.hibernate.format_sql: true
+      hibernate:
+         ddl-auto: update
+         naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      #open-in-view: false
+    http:
+       encoding:
+          charset: UTF-8
+          enabled: true
+          force: true
+
+logging:
+  level:
+    org:
+      hibernate.SQL: INFO
+      #springframework.orm.jpa.JpaTransactionManager: TRACE
+      springframework.transaction: TRACE
+      springframework: INFO
+
+client:
+   fis:
+      message: Hello People!!!
